@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muzeum U Kronikářa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="files/css/style.css">
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="logo">Muzeum U Kronikářa</div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#section1">Úvod</a></li>
+                <li><a href="#section2">Expozice</a></li>
+                <li><a href="#section3">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="burger" id="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </header>
+
+    <section id="section1">
+        <div class="container">
+            <h2>Vítejte v Muzeu</h2>
+            <p>Objevte bohatou historii naší obce a okolí. Venkovská usedlost z druhé poloviny 19. století je historickým a kulturním prostředím, které nabízí širokou nabídku výstav a akcí. Navštivte naše muzeum a zjistěte více o tam jak žili naši předkové. </p>
+            <p>Co se u nás koná? Bleší trhy, koncerty, hudební festival, letní kino, folklorní události, historické výstavy, sbírky a další kulturní akce. </p>
+        </div>
+    </section>
+
+    <section id="section2">
+        <div class="container">
+            <h2>Naše Expozice</h2>
+            <p>Prozkoumejte pravý selský grunt - starobylý dům, dvůr s hnojištěm, maštal, chlévy a mlatevnu se zahradou. Stálá expozice nástrojů, vybavení a krojů z přelomu 19. a 20. století. </p>
+
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="files/images/IMG20240607113938.jpg" alt="Expozice 1">
+                    <img src="files/images/IMG20241222151551.jpg" alt="Expozice 2">
+                    <img src="files/images/IMG20241230122719.jpg" alt="Expozice 3">
+                    <img src="files/images/IMG20250927101306.jpg" alt="Expozice 4">
+                    <img src="files/images/IMG20250927142146.jpg" alt="Expozice 5">
+                    <img src="files/images/IMG20250927173839.jpg" alt="Expozice 6">
+                    <img src="files/images/IMG20251004153310.jpg" alt="Expozice 7">
+                    <img src="files/images/IMG20251004155107.jpg" alt="Expozice 8">
+                </div>
+                <button class="carousel-prev" id="prevBtn">&#10094;</button>
+                <button class="carousel-next" id="nextBtn">&#10095;</button>
+                <div class="carousel-dots" id="dotsContainer"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section3">
+        <div class="container">
+            <h2>Kontaktujte Nás</h2>
+            <p>Máte dotazy? Neváhejte nás kontaktovat prostřednictvím e-mailu nebo telefonu. Těšíme se na vaši návštěvu!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p><a href="tel:+420728858226">+420 728 858 226</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p><a href="mailto:muzeum@ratiskovice.net">muzeum@ratiskovice.net</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-facebook"></i>
+                    <p><a href="https://www.facebook.com/muzeum.u.kronikara" target="_blank">Aktuality</a></p>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe
+                        style="border:none"
+                        src="https://mapy.com/s/dufudopuna"
+                        width="100%"
+                        height="500"
+                        frameborder="0">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; <span id="current-year">2026</span> Muzeum U Kronikářa - Ratíškovice</p>
+    </footer>
+
+    <script src="files/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+:root {
+    --header-height: 60px;
+    --primary-color: #333;
+    --accent-color: #007bff;
+    --bg-light: #f4f4f4;
+    --text-color: #333;
+}
+
+body {
+    margin: 0;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    scroll-behavior: smooth;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: transparent;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 25px;
+    z-index: 1001;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+header.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header.navbar-scrolled .logo,
+header.navbar-scrolled nav ul li a {
+    color: var(--primary-color) !important;
+}
+
+header.navbar-scrolled .burger div {
+    background-color: var(--primary-color) !important;
+}
+
+/* Ensure mobile nav links are always dark if the drawer is white */
+@media screen and (max-width: 768px) {
+    nav ul li a {
+        color: var(--primary-color) !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+
+    nav ul {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 60%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    nav ul li a {
+        color: var(--primary-color);
+    }
+
+    nav ul li {
+        margin: 20px 0;
+    }
+
+    nav.nav-active ul {
+        transform: translateX(0%);
+    }
+
+    /* Burger Animation */
+    .nav-active + .burger .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .nav-active + .burger .line2 {
+        opacity: 0;
+    }
+    .nav-active + .burger .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px 20px;
+    box-sizing: border-box;
+}
+
+#section1 { 
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/IMG20241030134835.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+#section2 { background-color: #f8f9fa; }
+
+/* Carousel Styles */
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 500px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: white;
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-slide img {
+        height: 300px;
+    }
+    .carousel-prev, .carousel-next {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        font-size: 1.2rem;
+    }
+}
+#section3 { background-color: #e9ecef; }
+
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.contact-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    margin-top: 10px;
+}
+
+.contact-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: var(--accent-color);
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.map-container {
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    display: block;
+}
+
+h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+}
